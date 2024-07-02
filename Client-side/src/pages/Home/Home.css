@@ -6,14 +6,21 @@
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0));
 }
 .hero img{    
-    width: 50%;
+    width: 100%;
+    height: 60vh;
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0));
 }
 .hero .hero-top{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    clip-path: polygon(0 0, 100% 0, 100% 79%, 0% 100%);
+    flex-direction: column;
+    /* clip-path: polygon(0 0, 100% 0, 100% 79%, 0% 100%); */
+    background: url(../../assets/Hero.jpg);
+    height: 60vh;
+    color: white;
+    line-height: 2.0;
+    object-fit: contain;
 }
 .hero .hero-bottom {
     display: flex;
@@ -35,12 +42,14 @@
 }
 .hero .hero-bottom .types:nth-child(2){
     background: url(../../assets/Potrait1.jpg);
+    color: black;
 }
 .hero .hero-bottom .types:nth-child(3){
     background: url(../../assets/StillLife.jpeg);
 }
 .hero .hero-bottom .types:nth-child(4){
     background: url(../../assets/Abstract.jpeg);
+    color: black;
 }
 .hero .hero-bottom .types h3{
     color: white;
