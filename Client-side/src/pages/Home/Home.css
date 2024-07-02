@@ -1,0 +1,47 @@
+.hero{
+    /* background: url(../../assets/heroImg.jpg); */
+    height: 70vh;
+    background-repeat: no-repeat;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0));
+}
+.hero img{    
+    width: 50%;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(255, 255, 255, 0));
+}
+.hero .hero-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 100% 79%, 0% 100%);
+}
+.hero .hero-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transform: translateY(-60%);
+}
+.hero .hero-bottom .types{
+    background: url(../../assets/Nature1.jpg);
+    margin: 0 2em;
+    width: 10em;
+    height: 10em;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    object-fit: contain;
+    background-repeat: no-repeat;
+}
+.hero .hero-bottom .types:nth-child(2){
+    background: url(../../assets/Potrait1.jpg);
+}
+.hero .hero-bottom .types:nth-child(3){
+    background: url(../../assets/StillLife.jpeg);
+}
+.hero .hero-bottom .types:nth-child(4){
+    background: url(../../assets/Abstract.jpeg);
+}
+.hero .hero-bottom .types h3{
+    color: white;
+}

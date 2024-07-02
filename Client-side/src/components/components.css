@@ -1,0 +1,35 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    border-bottom: 2px solid rgba(7, 7, 7, 0.452);
+    /* width: 100%; */
+    padding: 0 2em;
+    gap: 37em;
+    line-height: 1.5;
+    position: sticky;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.logo {
+    padding: 0;
+    will-change: filter;
+    transition: filter 300ms;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    float: left;
+}
+.logo:hover {
+    filter: drop-shadow(0 0 5em #646cffaa);
+}
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    gap: 2em;
+    float: right;
+}
