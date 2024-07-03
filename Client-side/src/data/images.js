@@ -1,16 +1,23 @@
-import bike from "../assets/bike.jpeg";
-import tower from "../assets/tower.jpeg";
-import houses from "../assets/Houses.jpeg";
+import art1 from "../assets/art1.jpg";
 
 const images = [
   {
-    image: bike,
+    image: art1,
   },
   {
-    image: tower,
+    image: art1,
   },
   {
-    image: houses,
+    image: art1,
+  },
+  {
+    image: art1,
+  },
+  {
+    image: art1,
+  },
+  {
+    image: art1,
   },
 ];
 

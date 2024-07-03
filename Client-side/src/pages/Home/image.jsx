@@ -1,15 +1,21 @@
-import './Home.css'
-import bike from '../../assets/bike.jpeg'
+// eslint-disable-next-line react/prop-types
+import { IoLogInSharp } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
-function image() {
+const Image = ({ image }) => {
+    const navigate = useNavigate();
+
+    const handleLogin = () => {
+        navigate('../../Login/Login.jsx');
+    };
+
     return (
-        <div>
-            <img src={bike} alt="" />
-            <img src={bike} alt="" />
-            <img src={bike} alt="" />
-            <img src={bike} alt="" />
+        <div className="image-cont">
+            <img src={image} alt="" />
+            <div className="login">
+                <button type="button" onClick={handleLogin}>< IoLogInSharp size={50} /></button>
+            </div>
         </div>
     )
 }
-
-export default image
+export default Image
