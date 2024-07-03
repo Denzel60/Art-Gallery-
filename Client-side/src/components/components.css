@@ -38,6 +38,35 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 20vh;
+    height: 25vh;
     width: 100%;
+    color: white;
+    padding: 1em;
+}
+footer .footer-cont{
+    width: 30%;
+}
+footer .footer-cont h3 link{
+    color: white;
+}
+footer .footer-cont .footer-input input{
+    margin: 1em;
+    width: 70%;
+    height: 2.5em;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5em;
+    font-size: 15px;
+    padding: 0 2em;
+    outline: none;
+}
+footer .footer-cont .footer-input button{
+    background-color: rgba(235, 82, 11, 0.856);
+    height: 2.5em;
+    border-radius: 0.5em;
+    outline: none;
+}
+footer .footer-social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
