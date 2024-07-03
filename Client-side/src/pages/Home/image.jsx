@@ -1,12 +1,12 @@
-// eslint-disable-next-line react/prop-types
 import { IoLogInSharp } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
 
+// eslint-disable-next-line react/prop-types
 const Image = ({ image }) => {
     const navigate = useNavigate();
 
     const handleLogin = () => {
-        navigate('../../Login/Login.jsx');
+        navigate('/Login');
     };
 
     return (

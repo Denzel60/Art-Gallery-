@@ -10,9 +10,9 @@ function Header() {
             </div>
 
             <div className="navbar">
-                <h3><a href="#">Trending</a></h3>
-                <h3><a href="#">Sign In</a></h3>
-                <h3><a href="#">Sign Up</a></h3>
+                <h3><a href="/">Trending</a></h3>
+                <h3><a href="/Login">Sign In</a></h3>
+                <h3><a href="/Register">Sign Up</a></h3>
             </div>
         </header>
     )

@@ -1,0 +1,55 @@
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form .form-group{
+    margin: 2em;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2em;
+    border-radius: 1em;
+}
+.form .form-group input{
+    margin: 1em;
+    width: 80%;
+    height: 3em;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 0.5em;
+    font-size: 20px;
+    padding: 0 2em;
+}
+.form .form-group button{
+    width: 80%;
+    background-color: rgba(235, 82, 11, 0.856);
+    border-radius: 0.5em;
+    font-size: 20px;
+}
+.form .form-group button:hover{
+    border: 1px solid white;
+}
+.form .form-group button:disabled{
+    background-color: rgba(235, 82, 11, 0.548);
+}
+.form .form-group h3{
+    color: white;
+}
+.form .form-group a{
+    color: rgba(255, 255, 255, 0.514);
+}
+.form .form-group a:hover{
+    color:  rgba(235, 82, 11, 0.856);
+}
+.form .form-group .form-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form .form-group .form-cont input{
+    width: 50%;
+}
