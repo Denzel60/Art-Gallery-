@@ -37,7 +37,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    object-fit: contain;
+    object-fit: cover;
     background-repeat: no-repeat;
 }
 .hero .hero-bottom .types:nth-child(2){
@@ -54,26 +54,20 @@
 .hero .hero-bottom .types h3{
     color: white;
 }
-.layout{
+/* masonry-layout{
+    cols: 3;
+} */
+.image-cont{
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.layout .image-cont{
-    width: 30%;
     border-radius: 5px;
-    margin: 1em;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
-.layout .image-cont img{
+.image-cont img{
     width: 100%;
     border-radius: 5px;
-    margin: 1em;
 }
 .login {
     position: absolute;

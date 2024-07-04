@@ -2,8 +2,10 @@ import './Forms.css'
 import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
+    const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true)
 
     const validationSchema = Yup.object({
@@ -12,14 +14,22 @@ function Register() {
             .max(15, "First name can not exceed 15 characters")
             .required("First name is required"),
 
-        lastName: Yup.string().
-            min(4, "Last name must be at least 4 character")
+        lastName: Yup.string()
+            .min(4, "Last name must be at least 4 character")
             .max(15, "Last name can not exceed 15 characters")
             .required("Last name is required"),
 
         email: Yup.string().email('Invalid email').required('Email is required'),
-        password: Yup.string().required('Password is required'),
-        cpassword: Yup.string().required('Confirm Password is required')
+
+        password: Yup.string()
+            .min(4, "Password must be at least 4 character")
+            .max(15, "Password can not exceed 15 characters")
+            .required('Password is required'),
+
+        cpassword: Yup.string()
+            .min(4, "Password must be at least 4 character")
+            .max(15, "Password can not exceed 15 characters")
+            .required('Confirm Password is required')
     })
 
     const formik = useFormik({
@@ -30,8 +40,10 @@ function Register() {
             password: "",
             cpassword: ""
         },
+
         onSubmit: (values) => {
             console.log(values)
+            navigate('/Dashboard');
         },
         validationSchema: validationSchema,
 
@@ -50,10 +62,12 @@ function Register() {
             <h2>Log In</h2>
 
             <form className='form-group' onSubmit={formik.handleSubmit}>
-                <div className="form-cont">
-                    <input type="text" placeholder='Enter Your First Name' name='firstName' id="firstName" value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur} />
-                    <input type="text" placeholder='Enter Your Last Name' name='lastName' id="lastName" value={formik.values.lastName} onChange={formik.handleChange} onBlur={formik.handleBlur} />
-                </div>
+                <input type="text" placeholder='Enter Your First Name' name='firstName' id="firstName" value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+                {formik.touched.firstName && formik.errors.firstName && <div style={{ color: "red" }}>{formik.errors.firstName}</div>}
+
+                <input type="text" placeholder='Enter Your Last Name' name='lastName' id="lastName" value={formik.values.lastName} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+                {formik.touched.lastName && formik.errors.lastName && <div style={{ color: "red" }}>{formik.errors.lastName}</div>}
+
 
                 <input type='email' placeholder="Enter Your Email" name="email" id="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                 {formik.touched.email && formik.errors.email && <div style={{ color: "red" }}>{formik.errors.email}</div>}

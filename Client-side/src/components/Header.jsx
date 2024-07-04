@@ -11,6 +11,7 @@ function Header() {
 
             <div className="navbar">
                 <h3><a href="/">Trending</a></h3>
+                <h3><a href="/Artists">Artists</a></h3>
                 <h3><a href="/Login">Sign In</a></h3>
                 <h3><a href="/Register">Sign Up</a></h3>
             </div>

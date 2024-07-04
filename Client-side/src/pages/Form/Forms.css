@@ -16,13 +16,14 @@
     border-radius: 1em;
 }
 .form .form-group input{
-    margin: 1em;
+    margin: 0.5em;
     width: 80%;
     height: 3em;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 0.5em;
     font-size: 20px;
     padding: 0 2em;
+    outline: none;
 }
 .form .form-group button{
     width: 80%;
@@ -44,12 +45,4 @@
 }
 .form .form-group a:hover{
     color:  rgba(235, 82, 11, 0.856);
-}
-.form .form-group .form-cont{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.form .form-group .form-cont input{
-    width: 50%;
 }
