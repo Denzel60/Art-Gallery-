@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 function Register() {
     const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true)
+    const [error, setError] = useState(false)
 
     const validationSchema = Yup.object({
         firstName: Yup.string()
@@ -32,6 +33,28 @@ function Register() {
             .required('Confirm Password is required')
     })
 
+
+    const handleSubmit = async (values) => {
+        try {
+            const response = await fetch('http://localhost:3006/api/users/register', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(values),
+            })
+            const data = await response.json();
+
+            if (data.success === true) {
+                navigate("/Dashboard")
+            } else {
+                setError(data.message)
+            }
+        } catch (error) {
+            setError(error.message)
+        }
+    }
+
     const formik = useFormik({
         initialValues: {
             firstName: "",
@@ -41,10 +64,8 @@ function Register() {
             cpassword: ""
         },
 
-        onSubmit: (values) => {
-            console.log(values)
-            navigate('/Dashboard');
-        },
+        onSubmit: handleSubmit,
+
         validationSchema: validationSchema,
 
         validate: (formValues) => {
@@ -62,6 +83,8 @@ function Register() {
             <h2>Log In</h2>
 
             <form className='form-group' onSubmit={formik.handleSubmit}>
+                <p style={{ color: "red" }}>{error && error}</p>
+
                 <input type="text" placeholder='Enter Your First Name' name='firstName' id="firstName" value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                 {formik.touched.firstName && formik.errors.firstName && <div style={{ color: "red" }}>{formik.errors.firstName}</div>}
 
@@ -80,7 +103,6 @@ function Register() {
 
                 <button type="submit" disabled={disabled} >Sign Up</button>
                 <h3>Already have an account, <a href="/Login">Login</a> to your account</h3>
-
             </form>
 
         </div>

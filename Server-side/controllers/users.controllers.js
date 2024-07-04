@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcrypt";
 const prisma = new PrismaClient();
+
+import bcrypt from "bcrypt";
 
 export const createUser = async (req, res) => {
   try {
@@ -15,7 +16,9 @@ export const createUser = async (req, res) => {
         password: hashedPassword,
       },
     });
-    res.status(200).json(createUser);
+    res
+      .status(201)
+      .json({ success: true, message: "User registered successfully" });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }
