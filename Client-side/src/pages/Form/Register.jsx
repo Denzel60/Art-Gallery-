@@ -3,7 +3,10 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom';
+import { apiBASE } from '../../utils/config';
+// import axios from 'axios';
 
+// const apiBASE = import.meta.env.VITE_API_URL_BASE;
 function Register() {
     const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true)
@@ -28,6 +31,7 @@ function Register() {
             .required('Password is required'),
 
         cpassword: Yup.string()
+            .oneOf([Yup.ref("password")], "password must match")
             .min(4, "Password must be at least 4 character")
             .max(15, "Password can not exceed 15 characters")
             .required('Confirm Password is required')
@@ -36,13 +40,14 @@ function Register() {
 
     const handleSubmit = async (values) => {
         try {
-            const response = await fetch('http://localhost:3006/api/users/register', {
+            const response = await fetch(`${apiBASE}/api/users/register`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(values),
             })
+            // const response = await axios.post(`${apiBASE}/api/users/register`, values)
             const data = await response.json();
 
             if (data.success === true) {
