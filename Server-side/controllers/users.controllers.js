@@ -45,7 +45,7 @@ export const loginUser = async (req, res) => {
           expiresIn: "1h",
         });
         res.cookie("ArtGallery_access_token", token);
-        res.status(200).json({ success: true, data: "Logged in successfully" });
+        res.status(200).json({ success: true, data: loginUser });
       } else {
         res
           .status(400)

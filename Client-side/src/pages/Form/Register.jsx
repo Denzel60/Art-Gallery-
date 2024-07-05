@@ -40,6 +40,7 @@ function Register() {
 
     const handleSubmit = async (values) => {
         try {
+            setError(false)
             const response = await fetch(`${apiBASE}/api/users/register`, {
                 method: 'POST',
                 headers: {
@@ -51,12 +52,13 @@ function Register() {
             const data = await response.json();
 
             if (data.success === true) {
-                navigate("/Dashboard")
+                navigate("/Login")
             } else {
                 setError(data.message)
             }
         } catch (error) {
-            setError(error.message)
+            console.log(error.message)
+            setError(true)
         }
     }
 
@@ -88,7 +90,7 @@ function Register() {
             <h2>Log In</h2>
 
             <form className='form-group' onSubmit={formik.handleSubmit}>
-                <p style={{ color: "red" }}>{error && error}</p>
+                {error && <p style={{ color: "red", fontSize: "20px", margin: "0" }}>There was an server error</p>}
 
                 <input type="text" placeholder='Enter Your First Name' name='firstName' id="firstName" value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                 {formik.touched.firstName && formik.errors.firstName && <div style={{ color: "red" }}>{formik.errors.firstName}</div>}
