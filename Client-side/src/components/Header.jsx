@@ -1,7 +1,12 @@
 import './components.css'
+import { useState } from 'react';
+import { Link } from "react-router-dom"
 import { GiPaintRoller } from "react-icons/gi";
 
 function Header() {
+
+    const [menu, setMenu] = useState("Trending");
+
     return (
         <header>
             <div className="logo">
@@ -10,10 +15,10 @@ function Header() {
             </div>
 
             <div className="navbar">
-                <h3><a href="/">Trending</a></h3>
-                <h3><a href="/Artists">Artists</a></h3>
-                <h3><a href="/Login">Sign In</a></h3>
-                <h3><a href="/Register">Sign Up</a></h3>
+                <Link to="/"><li onClick={() => { setMenu("Trending") }}>Trending{menu === "Trending" ? <hr /> : <></>}</li></Link>
+                <Link to="/Artists"><li onClick={() => { setMenu("Artists") }}>Artists{menu === "Artists" ? <hr /> : <></>}</li></Link>
+                <Link to="/Register"><li onClick={() => { setMenu("Sign In") }}>Sign In{menu === "Sign In" ? <hr /> : <></>}</li></Link>
+                <Link to="/Login"><li onClick={() => { setMenu("Sign Up") }}>Sign Up{menu === "Sign Up" ? <hr /> : <></>}</li></Link>
             </div>
         </header>
     )

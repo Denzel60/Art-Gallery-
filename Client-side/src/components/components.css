@@ -29,9 +29,12 @@ header{
 .navbar{
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
     gap: 2em;
     float: right;
+}
+.navbar li{
+    list-style: none;
+    font-size: 20px;
 }
 footer{
     background: black;

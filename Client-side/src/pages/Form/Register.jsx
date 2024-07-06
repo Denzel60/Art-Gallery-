@@ -87,7 +87,7 @@ function Register() {
     return (
 
         <div className='form'>
-            <h2>Log In</h2>
+            <h2>Sign Up</h2>
 
             <form className='form-group' onSubmit={formik.handleSubmit}>
                 {error && <p style={{ color: "red", fontSize: "20px", margin: "0" }}>There was an server error</p>}
