@@ -19,11 +19,12 @@
     margin: 0.5em;
     width: 80%;
     height: 3em;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.89);
     border-radius: 0.5em;
     font-size: 20px;
     padding: 0 2em;
     outline: none;
+    color: black;
 }
 .form .form-group button{
     width: 80%;

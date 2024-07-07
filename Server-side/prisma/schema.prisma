@@ -23,3 +23,9 @@ model User {
   @@unique([email])
   @@map("User_table")
 }
+
+model Bookings {
+  id       String   @id @default(uuid())
+  dateTime DateTime
+  number   BigInt
+}

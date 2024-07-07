@@ -3,15 +3,15 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { apiBASE } from '../../utils/config';
-import useUserInformationStore from '../../store/userInformationStore.js';
+// import useUserInformationStore from '../../store/userInformationStore.js';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true)
     const [error, setError] = useState(false)
-    const captureUserInformation = useUserInformationStore((state) => state.captureUserInformation)
-    const userInformation = useUserInformationStore((state) => state.userInformation)
+    // const captureUserInformation = useUserInformationStore((state) => state.captureUserInformation)
+    // const userInformation = useUserInformationStore((state) => state.userInformation)
 
     const validationSchema = Yup.object({
         email: Yup.string().email('Invalid email').required('Email is required'),
@@ -33,8 +33,8 @@ function Login() {
             if (data.success === true) {
                 // console.log(data)
                 navigate("/Dashboard")
-                captureUserInformation(data)
-                console.log(userInformation)
+                // captureUserInformation(data)
+                // console.log(userInformation)
             } else {
                 setError(data.message)
             }
