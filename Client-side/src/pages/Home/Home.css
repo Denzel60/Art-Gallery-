@@ -81,8 +81,8 @@
     gap: 2rem;
     transition: all 0.5s;
     color: black;
-  }
-  .image-cont:hover .login{
-    display: flex;
-  }
+}
+.image-cont:hover .login{
+   display: flex;
+}
   

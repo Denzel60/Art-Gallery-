@@ -1,0 +1,35 @@
+.services-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+ }
+.services-cont .services-group{
+    /* width: 45%; */
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+.services-cont .services-group img{
+    width: 100%;
+    margin: 0.1em;
+} 
+.services-cont .services-group button{
+    position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    transform: translate(-50%, -50%);
+    /* width: 100%; */
+    padding: 1rem;
+    display: none;
+    justify-content: center;
+    gap: 2rem;
+    transition: all 0.5s;
+    color: white;
+    z-index: 999;
+}
+.services-cont .services-group:hover button{
+    display: flex;
+}
