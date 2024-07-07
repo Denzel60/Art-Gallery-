@@ -1,0 +1,33 @@
+.artists-main-cont{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.artists-main-cont .artists-cont{
+    width: 90%;
+    margin: 1em;
+    display: flex;
+}
+.artists-main-cont .artists-cont img{ 
+    object-fit: contain;
+    width: 50%;
+    margin: 1em;
+}
+Carousel{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-img{
+    width: 90%;
+}
+.carousel-img img{
+    width: 100%;
+    object-fit: contain;
+}
+.carousel-img .legend{
+    width: 90%;
+}

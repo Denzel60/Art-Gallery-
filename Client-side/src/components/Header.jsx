@@ -17,8 +17,8 @@ function Header() {
             <div className="navbar">
                 <Link to="/"><li onClick={() => { setMenu("Trending") }}>Trending{menu === "Trending" ? <hr /> : <></>}</li></Link>
                 <Link to="/Artists"><li onClick={() => { setMenu("Artists") }}>Artists{menu === "Artists" ? <hr /> : <></>}</li></Link>
-                <Link to="/Register"><li onClick={() => { setMenu("Sign In") }}>Sign In{menu === "Sign In" ? <hr /> : <></>}</li></Link>
-                <Link to="/Login"><li onClick={() => { setMenu("Sign Up") }}>Sign Up{menu === "Sign Up" ? <hr /> : <></>}</li></Link>
+                <Link to="/Login"><li onClick={() => { setMenu("Sign In") }}>Sign In{menu === "Sign In" ? <hr /> : <></>}</li></Link>
+                <Link to="/Register"><li onClick={() => { setMenu("Sign Up") }}>Sign Up{menu === "Sign Up" ? <hr /> : <></>}</li></Link>
             </div>
         </header>
     )

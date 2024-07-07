@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { apiBASE } from '../../utils/config';
-import useUserInformationStore from '../../store/userInformationStore';
+import useUserInformationStore from '../../store/userInformationStore.js';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -31,6 +31,7 @@ function Login() {
             const data = await response.json()
 
             if (data.success === true) {
+                // console.log(data)
                 navigate("/Dashboard")
                 captureUserInformation(data)
                 console.log(userInformation)
