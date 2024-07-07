@@ -20,6 +20,7 @@ function Header() {
                 <Link to="/Services"><li onClick={() => { setMenu("Services") }}>Services{menu === "Services" ? <hr /> : <></>}</li></Link>
                 <Link to="/Login"><li onClick={() => { setMenu("Sign In") }}>Sign In{menu === "Sign In" ? <hr /> : <></>}</li></Link>
                 <Link to="/Register"><li onClick={() => { setMenu("Sign Up") }}>Sign Up{menu === "Sign Up" ? <hr /> : <></>}</li></Link>
+                <Link to="/Bookings"><button>Book Now</button></Link>
             </div>
         </header>
     )

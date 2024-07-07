@@ -14,18 +14,24 @@ datasource db {
 }
 
 model User {
-  id        String @id @default(uuid())
+  id        String     @id @default(uuid())
   firstName String
   lastName  String
   email     String
   password  String
+  bookings  Bookings[]
 
   @@unique([email])
   @@map("User_table")
 }
 
 model Bookings {
-  id       String   @id @default(uuid())
-  dateTime DateTime
-  number   BigInt
+  id       String @id @default(uuid())
+  dateTime String
+  location String
+  number   Int
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+
+  @@map("Bookings_table")
 }

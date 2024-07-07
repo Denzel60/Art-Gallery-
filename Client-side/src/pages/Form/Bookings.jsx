@@ -2,11 +2,11 @@ import './Forms.css'
 import { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-// import { apiBASE } from '../../utils/config';
-// import { useNavigate } from 'react-router-dom';
+import { apiBASE } from '../../utils/config';
+import { useNavigate } from 'react-router-dom';
 
 function Bookings() {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true)
     const [error, setError] = useState(false)
 
@@ -17,7 +17,27 @@ function Bookings() {
     })
 
     const handleSubmit = async (values) => {
-        console.log(values)
+        try {
+            setError(false)
+            const response = await fetch(`${apiBASE}/api/users/bookings`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(values),
+            })
+            // const response = await axios.post(`${apiBASE}/api/users/register`, values)
+            const data = await response.json();
+            console.log(data)
+            if (data.success === true) {
+                navigate("/Services")
+            } else {
+                setError("Unauthorized")
+            }
+        } catch (error) {
+            console.log(error.message)
+            setError(true)
+        }
     }
 
     const formik = useFormik({
