@@ -2,10 +2,17 @@ import './components.css'
 import { useState } from 'react';
 import { Link } from "react-router-dom"
 import { GiPaintRoller } from "react-icons/gi";
+// import { apiBASE } from '../../utils/config';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
 
     const [menu, setMenu] = useState("Trending");
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        navigate("/")
+    }
 
     return (
         <header>
@@ -18,9 +25,7 @@ function Header() {
                 <Link to="/"><li onClick={() => { setMenu("Trending") }}>Trending{menu === "Trending" ? <hr /> : <></>}</li></Link>
                 <Link to="/Artists"><li onClick={() => { setMenu("Artists") }}>Artists{menu === "Artists" ? <hr /> : <></>}</li></Link>
                 <Link to="/Services"><li onClick={() => { setMenu("Services") }}>Services{menu === "Services" ? <hr /> : <></>}</li></Link>
-                <Link to="/Login"><li onClick={() => { setMenu("Sign In") }}>Sign In{menu === "Sign In" ? <hr /> : <></>}</li></Link>
-                <Link to="/Register"><li onClick={() => { setMenu("Sign Up") }}>Sign Up{menu === "Sign Up" ? <hr /> : <></>}</li></Link>
-                <Link to="/Bookings"><button>Book Now</button></Link>
+                <Link to="/"><button onClick={handleLogout}>Log out</button></Link>
             </div>
         </header>
     )

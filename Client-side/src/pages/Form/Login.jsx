@@ -10,6 +10,7 @@ function Login() {
     const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true)
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
     // const captureUserInformation = useUserInformationStore((state) => state.captureUserInformation)
     // const userInformation = useUserInformationStore((state) => state.userInformation)
 
@@ -20,6 +21,7 @@ function Login() {
 
     const handleSubmit = async (values) => {
         try {
+            setLoading(true)
             const response = await fetch(`${apiBASE}/api/users/login`, {
                 method: 'POST',
                 headers: {
@@ -30,6 +32,7 @@ function Login() {
             })
             const data = await response.json()
 
+            setLoading(false)
             if (data.success === true) {
                 // console.log(data)
                 navigate("/Dashboard")
@@ -41,6 +44,7 @@ function Login() {
         } catch (error) {
             console.log(error.message)
             setError(true)
+            setLoading(false)
         }
     }
 
@@ -72,6 +76,7 @@ function Login() {
                 <input type="password" placeholder="Enter Your Password" name="password" id="password" value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                 {formik.touched.password && formik.errors.password && <div style={{ color: "red" }}>{formik.errors.password}</div>}
                 <button type="submit" disabled={disabled} >Login</button>
+                {loading && <p style={{ color: "white", fontSize: "20px", margin: "0" }}>Loading...</p>}
                 <h3>Do not have an account, <a href="/Register">Sign Up</a> for an account</h3>
             </form>
         </div>

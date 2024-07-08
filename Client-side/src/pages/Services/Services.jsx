@@ -33,21 +33,21 @@ function Services() {
                 <h2>Painting On Walls</h2>
 
                 <div className="services-group">
-                    <img src={Service} alt="" srcset="" />
+                    <img src={Service} alt="" />
                     <button onClick={handleClick}>Book Now</button>
                 </div>
 
                 <h2>House Interior Decoration</h2>
 
                 <div className="services-group">
-                    <img src={Service1} alt="" srcset="" />
+                    <img src={Service1} alt="" />
                     <button onClick={handleClick}>Book Now</button>
                 </div>
 
                 <h2>House Exterior Decoration</h2>
 
                 <div className="services-group">
-                    <img src={Service2} alt="" srcset="" />
+                    <img src={Service2} alt="" />
                     <button onClick={handleClick}>Book Now</button>
                 </div>
 

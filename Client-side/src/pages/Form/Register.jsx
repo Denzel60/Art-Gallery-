@@ -11,6 +11,7 @@ function Register() {
     const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true)
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const validationSchema = Yup.object({
         firstName: Yup.string()
@@ -41,6 +42,7 @@ function Register() {
     const handleSubmit = async (values) => {
         try {
             setError(false)
+            setLoading(true)
             const response = await fetch(`${apiBASE}/api/users/register`, {
                 method: 'POST',
                 headers: {
@@ -49,6 +51,7 @@ function Register() {
                 body: JSON.stringify(values),
             })
             // const response = await axios.post(`${apiBASE}/api/users/register`, values)
+            setLoading(false)
             const data = await response.json();
             console.log(data)
             if (data.success === true) {
@@ -59,6 +62,7 @@ function Register() {
         } catch (error) {
             console.log(error.message)
             setError(true)
+            setLoading(false)
         }
     }
 
@@ -109,6 +113,8 @@ function Register() {
                 {formik.touched.cpassword && formik.errors.cpassword && <div style={{ color: "red" }}>{formik.errors.cpassword}</div>}
 
                 <button type="submit" disabled={disabled} >Sign Up</button>
+                {loading && <p style={{ color: "white", fontSize: "20px", margin: "0" }}>Loading...</p>}
+
                 <h3>Already have an account, <a href="/Login">Login</a> to your account</h3>
             </form>
 

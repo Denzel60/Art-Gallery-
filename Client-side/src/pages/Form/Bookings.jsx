@@ -9,6 +9,7 @@ function Bookings() {
     const navigate = useNavigate();
     const [disabled, setDisabled] = useState(true)
     const [error, setError] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const validationSchema = Yup.object({
         dateTime: Yup.date().required('Date and Time required is required'),
@@ -19,6 +20,7 @@ function Bookings() {
     const handleSubmit = async (values) => {
         try {
             setError(false)
+            setLoading(true)
             const response = await fetch(`${apiBASE}/api/users/bookings`, {
                 method: 'POST',
                 headers: {
@@ -29,6 +31,7 @@ function Bookings() {
             // const response = await axios.post(`${apiBASE}/api/users/register`, values)
             const data = await response.json();
             console.log(data)
+            setLoading(false)
             if (data.success === true) {
                 navigate("/Services")
             } else {
@@ -37,6 +40,7 @@ function Bookings() {
         } catch (error) {
             console.log(error.message)
             setError(true)
+            setLoading(false)
         }
     }
 
@@ -72,6 +76,8 @@ function Bookings() {
                 <input type='number' placeholder="Enter Your Phone Number" name="number" id="number" value={formik.values.number} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                 {formik.touched.number && formik.errors.number && <div style={{ color: "red" }}>{formik.errors.number}</div>}
                 <button type="submit" disabled={disabled} >Book</button>
+                {loading && <p style={{ color: "white", fontSize: "20px", margin: "0" }}>Loading...</p>}
+
             </form>
         </div>
     )
