@@ -29,6 +29,7 @@ function App() {
           <Route path="/Services" element={< Services />} />
           <Route path="/Bookings" element={< Bookings />} />
           <Route path="/AccessBookings" element={< AccessBookings />} />
+          {/* <Route path="/AccessBookings" element={<Protected>< AccessBookings /></Protected>} /> */}
         </Routes>
         < Footer />
       </BrowserRouter>

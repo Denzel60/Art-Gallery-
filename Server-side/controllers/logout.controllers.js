@@ -1,10 +1,16 @@
 export const logout = (req, res) => {
-  // Clear the session cookie
-  req.session = null; // Deletes the cookie
-
-  // Optionally, clear other cookies (e.g., 'connect.sid')
-  res.clearCookie("connect.sid", { path: "/" });
-
-  // Redirect to the homepage or any other desired page
-  res.redirect("/");
+  req.logOut((err) => {
+    if (err) {
+      console.error("Error logging out:", err);
+      return res.status(500).send("Error logging out");
+    }
+    res.clearCookie("connect.sid", { path: "/" });
+    req.session.destroy(function (err) {
+      if (err) {
+        console.error("Error destroying session:", err);
+        return res.status(500).send("Error logging out");
+      }
+      res.redirect("/");
+    });
+  });
 };

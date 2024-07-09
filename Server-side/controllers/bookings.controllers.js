@@ -49,3 +49,17 @@ export const getAllBookings = async (req, res) => {
       .json({ success: false, message: error.message /*"An error occured"*/ });
   }
 };
+
+export const deleteBooking = async (req, res) => {
+  // const userId = req.body.userId;
+  // const id = req.params.id;
+  const userId = "d7ff914a-37cd-459f-a087-37ba4b2238c7";
+  try {
+    const deleteBooking = await prisma.Bookings.delete({
+      where: { userId: userId },
+    });
+    res.status(200).json({ success: true, message: deleteBooking });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};

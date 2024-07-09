@@ -5,6 +5,7 @@ import {
   createBooking,
   getSpecificBooking,
   getAllBookings,
+  deleteBooking,
 } from "../controllers/bookings.controllers.js";
 import { logout } from "../controllers/logout.controllers.js";
 import verifyToken from "../middlewares/bookings.middlewares.js";
@@ -20,6 +21,8 @@ router.get("/getSpecificBooking", verifyToken, getSpecificBooking);
 
 router.get("/getAllBookings", getAllBookings);
 
-// app.get("/logout", logout);
+router.get("/logout", verifyToken, logout);
+
+router.delete("/delete", verifyToken, deleteBooking);
 
 export default router;

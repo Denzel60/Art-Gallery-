@@ -1,12 +1,12 @@
 import { Children, useEffect } from 'react'
-import userInformationStore from '../../store/userInformationStore'
+import useUsernameStore from '../../store/userInformationStore';
 import { useNavigate } from 'react-router-dom'
 
 function Protected() {
-    const userInformation = userInformationStore((state) => state.userInformation)
+    const user = useUsernameStore(state => state.user)
     const navigate = useNavigate();
     useEffect(() => {
-        if (!userInformation) navigate("/Login")
+        if (!user) navigate("/Login")
     })
     return <div>{Children}</div>
 }

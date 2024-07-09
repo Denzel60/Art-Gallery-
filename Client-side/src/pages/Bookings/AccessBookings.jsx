@@ -1,4 +1,4 @@
-import './bookings.css'
+import './Bookings.css'
 import { useEffect, useState } from "react"
 import { apiBASE } from '../../utils/config.js';
 import { MoonLoader } from 'react-spinners'
