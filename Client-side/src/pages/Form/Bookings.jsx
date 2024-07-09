@@ -27,6 +27,7 @@ function Bookings() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(values),
+                credentials: 'include'
             })
             // const response = await axios.post(`${apiBASE}/api/users/register`, values)
             const data = await response.json();

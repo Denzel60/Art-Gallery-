@@ -1,0 +1,15 @@
+.booking{
+    width: 100%;
+}
+.booking .booking-cont{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-wrap: wrap;
+}
+.card-body{
+    width: 45%;
+    border: 2px solid grey;
+    margin: 1em;
+    background-color: rgba(202, 200, 200, 0.74);
+}

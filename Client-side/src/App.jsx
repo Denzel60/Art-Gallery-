@@ -9,6 +9,7 @@ import Register from './pages/Form/Register.jsx'
 import Artists from './pages/Artists/Artists.jsx'
 import Services from './pages/Services/Services.jsx'
 import Bookings from './pages/Form/Bookings.jsx'
+import AccessBookings from './pages/Bookings/AccessBookings.jsx'
 // import Protected from './components/Protected/Protected.jsx'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           {/* <Route path="/Artists" element={<Protected>< Artists /></Protected>} /> */}
           <Route path="/Services" element={< Services />} />
           <Route path="/Bookings" element={< Bookings />} />
+          <Route path="/AccessBookings" element={< AccessBookings />} />
         </Routes>
         < Footer />
       </BrowserRouter>
