@@ -12,7 +12,7 @@ function Login() {
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const captureUser = useUsernameStore((state) => state.captureUser)
-    const user = useUsernameStore(state => state.user)
+    const user = useUsernameStore((state) => state.user)
 
     const validationSchema = Yup.object({
         email: Yup.string().email('Invalid email').required('Email is required'),
@@ -36,7 +36,6 @@ function Login() {
             if (data.success === true) {
                 navigate("/Dashboard")
                 captureUser(data.data)
-                // console.log(data)
                 console.log(user)
             } else {
                 setError(data.message)
