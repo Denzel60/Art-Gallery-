@@ -27,6 +27,7 @@ export const getSpecificBooking = async (req, res) => {
     const getBookings = await prisma.Bookings.findMany({
       where: { userId: user.id },
       select: {
+        id: true,
         dateTime: true,
         location: true,
         number: true,
@@ -50,15 +51,31 @@ export const getAllBookings = async (req, res) => {
   }
 };
 
-export const deleteBooking = async (req, res) => {
-  // const userId = req.body.userId;
-  // const id = req.params.id;
-  const userId = "d7ff914a-37cd-459f-a087-37ba4b2238c7";
+export const updateBooking = async (req, res) => {
+  const id = req.params.id;
+  const { dateTime, location, number } = req.body;
   try {
-    const deleteBooking = await prisma.Bookings.delete({
-      where: { userId: userId },
+    const updatedBooking = await prisma.Bookings.update({
+      where: { id: id },
+      data: {
+        dateTime,
+        location,
+        number,
+      },
     });
-    res.status(200).json({ success: true, message: deleteBooking });
+    res.status(200).json({ success: true, message: updatedBooking });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const deleteBooking = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const deletedBooking = await prisma.Bookings.delete({
+      where: { id: id },
+    });
+    res.status(200).json({ success: true, message: deletedBooking });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

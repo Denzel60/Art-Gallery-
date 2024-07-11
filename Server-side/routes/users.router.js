@@ -6,6 +6,7 @@ import {
   getSpecificBooking,
   getAllBookings,
   deleteBooking,
+  updateBooking,
 } from "../controllers/bookings.controllers.js";
 import { logout } from "../controllers/logout.controllers.js";
 import verifyToken from "../middlewares/bookings.middlewares.js";
@@ -23,6 +24,8 @@ router.get("/getAllBookings", getAllBookings);
 
 router.get("/logout", verifyToken, logout);
 
-router.delete("/delete", verifyToken, deleteBooking);
+router.delete("/delete/:id", verifyToken, deleteBooking);
+
+router.patch("/update/:id", verifyToken, updateBooking);
 
 export default router;

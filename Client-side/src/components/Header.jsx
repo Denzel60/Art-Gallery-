@@ -4,12 +4,12 @@ import { Link } from "react-router-dom"
 import { GiPaintRoller } from "react-icons/gi";
 import { apiBASE } from '../utils/config';
 // import { useNavigate } from 'react-router-dom';
-// import useUsernameStore from '../store/userInformationStore';
+import useUsernameStore from '../store/userInformationStore';
 // import Protected from './Protected/Protected';
 
 function Header() {
 
-    // const user = useUsernameStore(state => state.user)
+    const user = useUsernameStore(state => state.user)
     const [menu, setMenu] = useState("Trending");
     // const [userName, setUserName] = useState(null);
     // const navigate = useNavigate();
@@ -45,7 +45,7 @@ function Header() {
                 <Link to="/Artists"><li onClick={() => { setMenu("Artists") }}>Artists{menu === "Artists" ? <hr /> : <></>}</li></Link>
                 <Link to="/Services"><li onClick={() => { setMenu("Services") }}>Services{menu === "Services" ? <hr /> : <></>}</li></Link>
                 <Link to="/AccessBookings"><li onClick={() => { setMenu("AccessingBookings") }}>AccessBookings{menu === "AccessBookings" ? <hr /> : <></>}</li></Link>
-                {/* <h4>{userName}</h4> */}
+                <h4>{user.firstName}</h4>
                 {/* <h4><Protected>{user.firstName}</Protected></h4> */}
                 <img src="" alt="" />
                 <Link to="/"><button onClick={handleLogout}>Log out</button></Link>

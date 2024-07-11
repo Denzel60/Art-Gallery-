@@ -7,6 +7,7 @@ function AccessBookings() {
     const [error, setError] = useState(false)
     const [loading, setLoading] = useState(false)
     const [bookings, setBookings] = useState([])
+    // const [id, setId] = useState(null)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,6 +20,7 @@ function AccessBookings() {
                 const data = await response.json();
 
                 if (data.success === true) {
+                    console.log(data.data)
                     setBookings(data.data);
                     setLoading(false)
                 } else {
@@ -34,6 +36,22 @@ function AccessBookings() {
         fetchData();
     }, []);
 
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`${apiBASE}/api/users/delete/${id}`, {
+                method: 'DELETE',
+                credentials: 'include'
+            });
+            const data = await response.json();
+            console.log(data)
+            if (data.success === true) {
+                alert("Deleted Booking Successfully")
+                setBookings(bookings.filter(booking => booking.id !== id));
+            }
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
 
     return (
         <div className="booking">
@@ -46,7 +64,11 @@ function AccessBookings() {
                     <div key={i} className="card-body">
                         <h3 className="card-text">Booking Date: {booking.dateTime}</h3>
                         <h4 className="card-text">Your Phone Number: {booking.number}</h4>
-                        <p className="card-title">Booking ID: {booking.userId}</p>
+                        <h4 className="card-text">Your Booked Location: {booking.location}</h4>
+                        {/* <p className="card-title">Booking ID: {booking.id}</p> */}
+                        <button>Update</button>
+                        <button onClick={() => handleDelete(booking.id)}>Delete</button>
+                        {/* <button onClick={handleDelete}>Delete</button> */}
                     </div>
                 ))}
             </div>

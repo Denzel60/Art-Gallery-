@@ -10,7 +10,7 @@ import Artists from './pages/Artists/Artists.jsx'
 import Services from './pages/Services/Services.jsx'
 import Bookings from './pages/Form/Bookings.jsx'
 import AccessBookings from './pages/Bookings/AccessBookings.jsx'
-import Protected from './components/Protected/Protected.jsx'
+// import Protected from './components/Protected/Protected.jsx'
 
 function App() {
 
@@ -22,16 +22,16 @@ function App() {
           <Route path='/Login' element={<Login />} />
           <Route path='/Register' element={<Register />} />
           <Route path="/" element={< Home />} />
-          {/* <Route path="/Dashboard" element={< Dashboard />} /> */}
-          <Route path="/Dashboard//*" element={<Protected element={<Dashboard />} />} />
-          {/* <Route path="/Artists" element={< Artists />} /> */}
-          <Route path="/Artists/" element={<Protected element={<Artists />} />} />
-          {/* <Route path="/Services" element={< Services />} /> */}
-          <Route path="/Services/" element={<Protected element={<Services />} />} />
-          {/* <Route path="/Bookings" element={< Bookings />} /> */}
-          <Route path="/Bookings/" element={<Protected element={<Bookings />} />} />
-          {/* <Route path="/AccessBookings" element={< AccessBookings />} /> */}
-          <Route path="/AccessBookings/" element={<Protected element={<AccessBookings />} />} />
+          <Route path="/Dashboard" element={< Dashboard />} />
+          {/* <Route path="/Dashboard//*" element={<Protected element={<Dashboard />} />} /> */}
+          <Route path="/Artists" element={< Artists />} />
+          {/* <Route path="/Artists/" element={<Protected element={<Artists />} />} /> */}
+          <Route path="/Services" element={< Services />} />
+          {/* <Route path="/Services/" element={<Protected element={<Services />} />} /> */}
+          <Route path="/Bookings" element={< Bookings />} />
+          {/* <Route path="/Bookings/" element={<Protected element={<Bookings />} />} /> */}
+          <Route path="/AccessBookings" element={< AccessBookings />} />
+          {/* <Route path="/AccessBookings/" element={<Protected element={<AccessBookings />} />} /> */}
         </Routes>
         < Footer />
       </BrowserRouter>
